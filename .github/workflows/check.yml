@@ -13,6 +13,11 @@ jobs:
     - name: Run a one-line script
       run: echo "Hello, world! This job is running on ${{ runner.os }}."
 
+    - name: Secret Scanning
+      uses: trufflesecurity/trufflehog@main
+      with:
+        extra_args: --results=verified,unknown  
+
     - name: Run a multi-line script
       run: |
         echo "This script runs on a Linux machine."
