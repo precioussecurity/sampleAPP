@@ -1,0 +1,21 @@
+name: CI Workflow
+
+on: [push, pull_request]
+
+jobs:
+  mybuild:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run a one-line script
+      run: echo "Hello, world! This job is running on ${{ runner.os }}."
+
+    - name: Run a multi-line script
+      run: |
+        echo "This script runs on a Linux machine."
+        echo "The branch name is ${{ github.ref }}."
+        echo "The repository is ${{ github.repository }}."
+
